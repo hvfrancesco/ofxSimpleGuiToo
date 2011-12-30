@@ -46,6 +46,7 @@ public:
 	float	buttonHeight;
 	float	toggleHeight;
 	float	sliderHeight;
+	float	colorSliderHeight;
 	float	sliderTextHeight;
 	float	slider2DTextHeight;
 	float	titleHeight;

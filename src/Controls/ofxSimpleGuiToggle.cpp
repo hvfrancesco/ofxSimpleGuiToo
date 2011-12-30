@@ -79,20 +79,24 @@ void ofxSimpleGuiToggle::draw(float x, float y) {
 	
 	ofEnableAlphaBlending();
 	ofFill();
+	
+	setTextBGColor();
+	ofRect(0, 0, width, height);
+	
 	setFullColor(*value);
-	ofRect(0, 0, height, height);
+	ofRect(2, 2, height-4, height-4);
 	
 	if((*value)) {
 		setTextColor();
-		ofLine(0, 0, height, height);
-		ofLine(height, 0, 0, height);
+		ofLine(2, 2, height-4, height-4);
+		ofLine(height-4, 2, 2, height-4);
 	}
 	
-	setTextBGColor();
-	ofRect(height, 0, width - height, height);
+	//setTextBGColor();
+	//ofRect(height, 0, width - height, height);
 	
 	setTextColor();
-	ofDrawBitmapString(name, height + 15, 15);
+	ofDrawBitmapString(name, height + 15, 12);
 	ofDisableAlphaBlending();
 	
 	glPopMatrix();
