@@ -198,7 +198,7 @@ void ofxSimpleGuiComboBox::setCBTextColor() {
 
 void ofxSimpleGuiComboBox::setCBTextBGColor() {
 	if(m_hasFocus) ofSetHexColor(config->textBGOverColor);
-	else ofSetHexColor(config->textBGColor);
+	else ofSetColor(config->textBGColor.r,config->textBGColor.g, config->textBGColor.b, config->textBGColor.a);
 }
 
 

@@ -96,7 +96,7 @@ ofxSimpleGuiControl &ofxSimpleGuiControl::setTextColor(bool clickable) {
 
 ofxSimpleGuiControl &ofxSimpleGuiControl::setTextBGColor(bool clickable) {
 	if(isMouseOver() && clickable) ofSetHexColor(config->textBGOverColor);
-	else ofSetHexColor(config->textBGColor);
+	else ofSetColor(config->textBGColor.r, config->textBGColor.g, config->textBGColor.b, config->textBGColor.a);
 	return *this;
 }
 
@@ -108,7 +108,7 @@ ofxSimpleGuiControl &ofxSimpleGuiControl::setFullColor(bool forceActive) {
 }
 
 ofxSimpleGuiControl &ofxSimpleGuiControl::setEmptyColor() {
-	ofSetHexColor(config->emptyColor);
+	ofSetColor(config->emptyColor.r, config->emptyColor.g, config->emptyColor.b, config->emptyColor.a);
 	//		if(isMouseOver()) ofSetHexColor(config->overColor.r, config->overColor.g, config->overColor.b);
 	//		if(focused && !isMouseOver()) ofSetHexColor(config->focusColor.r, config->focusColor.g, config->focusColor.b);
 	return *this;

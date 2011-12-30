@@ -61,13 +61,16 @@ ofxSimpleGuiConfig::ofxSimpleGuiConfig() {
 
 	textColor			= 0x888888;
 	textOverColor		= 0xFFFFFF;
-	textBGColor			= 0x333333;
+	//textBGColor			= 0x333333;
+	textBGColor.r = textBGColor.g = textBGColor.b = 64;
+	textBGColor.a = 180;
+
 	textBGOverColor		= 0x222222;
 
 	fullColor			= 0xaaaaaa;
 	fullOverColor		= 0xffffff;
 	fullActiveColor		= 0x881818;
-	emptyColor			= 0x111111;
-
+	emptyColor.r = emptyColor.g = emptyColor.b = 32;
+    emptyColor.a = 180;
 	borderColor			= 0x333333;
 }

@@ -59,13 +59,13 @@ public:
 
 	int	textColor;
 	int textOverColor;
-	int textBGColor;
+	ofColor textBGColor;
 	int textBGOverColor;
 
 	int fullColor;
 	int	fullOverColor;
 	int fullActiveColor;
-	int emptyColor;
+	ofColor emptyColor;
 	int borderColor;
 
 	ofxSimpleGuiConfig();
