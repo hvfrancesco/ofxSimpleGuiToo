@@ -35,7 +35,8 @@ void ofxSimpleGuiContent::draw(float x, float y) {
 	ofRect(0, fixheight, width, config->sliderTextHeight);
 
 	setTextColor();
-	ofDrawBitmapString(name, 3, fixheight + 15);
+	//ofDrawBitmapString(name, 3, fixheight + 15);
+	config->guiFont.drawStringAsShapes(name, 3, fixheight + 15);
 	ofDisableAlphaBlending();
 	glPopMatrix();
 }

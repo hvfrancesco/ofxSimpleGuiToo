@@ -86,7 +86,8 @@ void ofxSimpleGuiTitle::draw(float x, float y) {
 	}
 
 	setTextColor(value != NULL);
-	ofDrawBitmapString(name, 3, 15);
+	//ofDrawBitmapString(name, 3, 15);
+	config->guiFont.drawStringAsShapes(name, 3, 15);
 
 	ofDisableAlphaBlending();
 

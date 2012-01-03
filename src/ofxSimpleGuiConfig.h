@@ -38,6 +38,7 @@
 
 #include "ofTypes.h"
 #include "ofPoint.h"
+#include "ofTrueTypeFont.h"
 
 class ofxSimpleGuiConfig {
 public:
@@ -52,6 +53,8 @@ public:
 	float	titleHeight;
 	float	comboBoxHeight;
 	float	comboBoxTextHeight;
+
+	ofTrueTypeFont guiFont;
 
 	ofPoint padding;
 	ofPoint offset;

@@ -126,14 +126,14 @@ void ofxSimpleGuiColorPicker::draw(float x, float y) {
 			case 3:glColor3f(getValue(i), getValue(i), getValue(i)); break;
 		}
 		*/
-		
+
 		switch(i) {
 			case 0:glColor3f(1, 0, 0); break;
 			case 1:glColor3f(0, 1, 0); break;
 			case 2:glColor3f(0, 0, 1); break;
 			case 3:glColor3f(getValue(i), getValue(i), getValue(i)); break;
 		}
-		
+
 
 		//ofRect(0, startY, barwidth[i], config->colorSliderHeight * 1.5); // was * 1.8
 		//ofRect(0, startY, barwidth[i], config->sliderHeight);
@@ -147,7 +147,8 @@ void ofxSimpleGuiColorPicker::draw(float x, float y) {
 			glColor3f(0.5, 0.5, 0.5);
 		}
 
-		ofDrawBitmapString(ofToString(getValue(i), 4), 3, startY + 12);
+		//ofDrawBitmapString(ofToString(getValue(i), 4), 3, startY + 12);
+		config->guiFont.drawStringAsShapes(ofToString(getValue(i), 4), 3, startY + 12);
 
 		startY += config->colorSliderHeight * 1.6; // was *2
 	}
@@ -163,7 +164,8 @@ void ofxSimpleGuiColorPicker::draw(float x, float y) {
 
 	setTextColor();
 	string s = name;
-	ofDrawBitmapString(s, 3, startY + 14);
+	//ofDrawBitmapString(s, 3, startY + 14);
+	config->guiFont.drawStringAsShapes(s, 3, startY + 14);
 	ofDisableAlphaBlending();
 	glPopMatrix();
 }

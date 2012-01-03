@@ -51,8 +51,9 @@ ofxSimpleGuiConfig::ofxSimpleGuiConfig() {
 	comboBoxHeight		= titleHeight;	//15
 	comboBoxTextHeight	= 15;
 
+    guiFont.loadFont("type/slkscr.ttf", 6, false, true, true);
 
-	padding.set			(titleHeight/2, 0); // was titleHeight/2 , 10
+	padding.set			(titleHeight/2, 2); // was titleHeight/2 , 10
 	offset.set			(titleHeight/2, titleHeight/2);
 	slider2DSize.set	(titleHeight * 4, titleHeight * 4);
 
