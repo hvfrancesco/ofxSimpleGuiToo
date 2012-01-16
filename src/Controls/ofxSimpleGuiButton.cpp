@@ -40,7 +40,7 @@ void ofxSimpleGuiButton::setValue(bool b) {
 }
 
 void ofxSimpleGuiButton::toggle() {
-	(*value) = !(*value); 
+	(*value) = !(*value);
 }
 
 void ofxSimpleGuiButton::setToggleMode(bool b) {
@@ -48,8 +48,8 @@ void ofxSimpleGuiButton::setToggleMode(bool b) {
 }
 
 void ofxSimpleGuiButton::onPress(int x, int y, int button) {
-	beenPressed = true;	
-	if(beToggle) (*value) = !(*value); 
+	beenPressed = true;
+	if(beToggle) (*value) = !(*value);
 	else (*value) = true;
 }
 
@@ -59,26 +59,35 @@ void ofxSimpleGuiButton::onRelease(int x, int y, int button) {
 
 void ofxSimpleGuiButton::draw(float x, float y) {
 	setPos(x, y);
-	
+
 	glPushMatrix();
 	glTranslatef(x, y, 0);
-	
+
 	ofEnableAlphaBlending();
 	ofFill();
 	setTextBGColor();
-	ofRect(0, 0, width, height);
-	
+	if(config->rounded)
+	{
+        roundedRect(0,0,width,height,config->rectRadius);
+	}
+    else
+    {
+        ofRect(0, 0, width, height);
+    }
+
+
+
 	// if a toggle
 	if((*value) && beToggle) {
 		setTextColor();
 		//ofLine(0, 0, box.width, box.height);
 		//ofLine(box.width, 0, 0, box.height);
 	}
-	
+
 	setTextColor();
 	ofDrawBitmapString(name, 3, 15);
-	
+
 	ofDisableAlphaBlending();
-	
+
 	glPopMatrix();
 }

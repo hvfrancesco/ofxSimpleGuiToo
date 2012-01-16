@@ -76,7 +76,14 @@ void ofxSimpleGuiTitle::draw(float x, float y) {
 	//		setTextBGColor(value != NULL);
 	//		ofSetHexColor(0, 0, 0);
 	ofSetHexColor(config->fullActiveColor);
-	ofRect(0, 0, width, height);
+	if(config->rounded)
+	{
+	    roundedRect(0, 0, width, height,config->rectRadius);
+	}
+	else
+	{
+        ofRect(0, 0, width, height);
+	}
 
 	// if a toggle
 	if(value && (*value) && beToggle) {

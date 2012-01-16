@@ -27,10 +27,10 @@ public:
 		targetValue	= value;
 		oldValue	= targetValue;
 		controlType = "SliderBase";
-		
+
 		setIncrement(0);
 		setSmoothing(0);
-		
+
 		setup();
 	}
 
@@ -43,16 +43,16 @@ public:
 	void loadFromXML(ofxXmlSettings &XML) {
 		setValue((Type)XML.getValue(controlType + "_" + key + ":value", 0.0f));
 	}
-	
+
 	void setSmoothing(float smoothing) {
 		lerpSpeed	= 1.0f - smoothing * 0.9;		// so smoothing :1 still results in some motion!
 	}
-	
+
 	void setIncrement(Type increment) {
 		this->increment = increment;
 	}
-	
-	
+
+
 
 	void saveToXML(ofxXmlSettings &XML) {
 		XML.addTag(controlType + "_" + key);
@@ -73,11 +73,11 @@ public:
 		setTargetValue(f);
 		oldValue = *value =  targetValue;
 	}
-	
+
 	void setTargetValue(Type f) {
 		targetValue = ofClamp(f, min, max);
 	}
-	
+
 
 	void increase() {
 		if(increment == 0) setIncrement((max - min) * 0.001);
@@ -128,11 +128,11 @@ public:
 	void onKeyLeft() {
 		decrease();
 	}
-	
+
 	void onKeyUp() {
 		increase();
 	}
-	
+
 	void onKeyDown() {
 		decrease();
 	}
@@ -141,14 +141,14 @@ public:
 	//--------------------------------------------------------------------- update
 	void update() {
 		if(!enabled) return;
-		
+
 		if(oldValue != *value) {					// if value has changed programmatically by something else
 			oldValue = targetValue = *value;			// save the value in target and oldvalue
 		} else {									// otherwise lerp
 			*value += (Type)((targetValue - *value) * lerpSpeed);
 			oldValue = *value;							// and save oldvalue
 		}
-		
+
 		if(lock) {
 			updateSlider();
 		}
@@ -176,15 +176,35 @@ public:
 		ofFill();
 
 		setEmptyColor();
-		ofRect(0, 0, width, config->sliderHeight);
-
+		//if(config->rounded)
+		//{
+		//   roundedRect(0, 0, width, config->sliderHeight, config->rectRadius);
+		//}
+		//else
+		//{
+		    ofRect(0, 0, width, config->sliderHeight);
+		//}
 
 		setFullColor();
-		ofRect(0, 0, barwidth, config->sliderHeight);
+		//if(config->rounded)
+		//{
+        //    roundedRect(0, 0, barwidth, config->sliderHeight, config->rectRadius);
+		//}
+		//else
+		//{
+		    ofRect(0, 0, barwidth, config->sliderHeight);
+		//}
+
 
 		setTextBGColor();
-		ofRect(0, config->sliderHeight, width, config->sliderTextHeight);
-
+		if(config->rounded)
+		{
+            roundedRect(0, config->sliderHeight, width, config->sliderTextHeight, config->rectRadius);
+		}
+		else
+		{
+		    ofRect(0, config->sliderHeight, width, config->sliderTextHeight);
+		}
 		setTextColor();
 		string s = name + ": " + ofToString((*value));
 		ofDrawBitmapString(s, 3, config->sliderHeight + 14);

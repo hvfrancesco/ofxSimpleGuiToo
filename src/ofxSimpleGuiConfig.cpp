@@ -52,7 +52,7 @@ ofxSimpleGuiConfig::ofxSimpleGuiConfig() {
 	comboBoxTextHeight	= 15;
 
 
-	padding.set			(titleHeight/2, 0); // was titleHeight/2 , 10
+	padding.set			(titleHeight/2, 3); // was titleHeight/2 , 10
 	offset.set			(titleHeight/2, titleHeight/2);
 	slider2DSize.set	(titleHeight * 4, titleHeight * 4);
 
@@ -73,4 +73,6 @@ ofxSimpleGuiConfig::ofxSimpleGuiConfig() {
 	emptyColor.r = emptyColor.g = emptyColor.b = 64;
     emptyColor.a = 180;
 	borderColor			= 0x333333;
+	rectRadius = 2;
+	rounded = false;
 }

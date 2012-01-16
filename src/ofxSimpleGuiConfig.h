@@ -67,6 +67,8 @@ public:
 	int fullActiveColor;
 	ofColor emptyColor;
 	int borderColor;
+	int rectRadius;
+	bool rounded;
 
 	ofxSimpleGuiConfig();
 };
