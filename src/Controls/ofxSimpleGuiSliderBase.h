@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofxSimpleGuiControl.h"
+#include "ofxTextInputField.h"
 
 
 
@@ -17,6 +18,9 @@ public:
 	Type		targetValue;
 	Type		oldValue;
 	Type		increment;
+	
+	ofxTextInputField textField;
+	bool enterText;
 
 	//--------------------------------------------------------------------- construct
 	ofxSimpleGuiSliderBase(string name, Type &value, Type min, Type max) : ofxSimpleGuiControl(name) {
@@ -38,6 +42,8 @@ public:
 		setSize(config->gridSize.x - config->padding.x, config->sliderHeight + config->sliderTextHeight);
 		pct		 = ofMap((*value), min, max, 0.0, width);
 		barwidth = pct;
+		textField.disable();
+		textField.text = ofToString((*value));
 	}
 
 	void loadFromXML(ofxXmlSettings &XML) {
@@ -104,6 +110,7 @@ public:
 
 			targetValue = (Type)temp;
 			oldValue = *value;		// save oldValue (so the draw doesn't update target but uses it)
+			textField.text = ofToString((*value));
 		}
 	}
 
@@ -135,6 +142,22 @@ public:
 
 	void onKeyDown() {
 		decrease();
+	}
+
+    void onKeyEnter() {
+		if(enterText)
+		{
+		enterText=false;
+		setValue((Type)ofToFloat(textField.text));
+		textField.disable();
+		}
+		else
+		{
+		enterText=true;
+		textField.enable();
+		textField.cursorPosition=0;
+		textField.text = ofToString((*value));
+		}
 	}
 
 
@@ -206,8 +229,9 @@ public:
 		    ofRect(0, config->sliderHeight, width, config->sliderTextHeight);
 		}
 		setTextColor();
-		string s = name + ": " + ofToString((*value));
+		string s = name + ": ";
 		ofDrawBitmapString(s, 3, config->sliderHeight + 14);
+		textField.draw(30, config->sliderHeight + 14);
 		ofDisableAlphaBlending();
 		glPopMatrix();
 	}
