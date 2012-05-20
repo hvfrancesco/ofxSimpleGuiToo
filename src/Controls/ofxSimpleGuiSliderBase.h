@@ -42,6 +42,7 @@ public:
 		setSize(config->gridSize.x - config->padding.x, config->sliderHeight + config->sliderTextHeight);
 		pct		 = ofMap((*value), min, max, 0.0, width);
 		barwidth = pct;
+		enterText = false;
 		textField.disable();
 		textField.text = ofToString((*value));
 	}
@@ -150,13 +151,17 @@ public:
 		enterText=false;
 		setValue((Type)ofToFloat(textField.text));
 		textField.disable();
+		textField.cursorPosition=0;
 		}
 		else
 		{
 		enterText=true;
-		textField.enable();
 		textField.cursorPosition=0;
+		//textField.text = "";
 		textField.text = ofToString((*value));
+		textField.enable();
+		//textField.clear();
+		
 		}
 	}
 
@@ -175,7 +180,7 @@ public:
 		if(lock) {
 			updateSlider();
 		}
-
+        //textField.text = ofToString((*value));
 //		enabled = false;
 
 	}
@@ -229,9 +234,17 @@ public:
 		    ofRect(0, config->sliderHeight, width, config->sliderTextHeight);
 		}
 		setTextColor();
+		if(enterText)
+		{
 		string s = name + ": ";
 		ofDrawBitmapString(s, 3, config->sliderHeight + 14);
-		textField.draw(30, config->sliderHeight + 14);
+		textField.draw(s.size()*8, config->sliderHeight+6);
+		}
+		else
+		{
+		string s = name + ": "+ofToString((*value));
+		ofDrawBitmapString(s, 3, config->sliderHeight + 14);
+		}
 		ofDisableAlphaBlending();
 		glPopMatrix();
 	}
