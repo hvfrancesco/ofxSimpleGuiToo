@@ -236,9 +236,9 @@ public:
 		setTextColor();
 		if(enterText)
 		{
-		string s = name + ": ";
+		string s = name + ":";
 		ofDrawBitmapString(s, 3, config->sliderHeight + 14);
-		textField.draw(s.size()*8, config->sliderHeight+6);
+		textField.draw(s.size()*8, config->sliderHeight+3);
 		}
 		else
 		{
