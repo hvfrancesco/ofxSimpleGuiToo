@@ -39,6 +39,7 @@
 #include "ofxMSAInteractiveObject.h"
 #include "ofxSimpleGuiConfig.h"
 #include "ofxXmlSettings.h"
+#include "ofxMidi.h"
 
 class ofxSimpleGuiControl : public ofxMSAInteractiveObject {
 public:
@@ -50,7 +51,11 @@ public:
 	bool		focused;
 	bool		newColumn;
 	bool		hasTitle;
+	bool        bLearning;
+	bool        bLearnt;
 	char		keyboardShortcut;
+
+	ofxMidiMessage midiControl;
 
 	ofxSimpleGuiControl(string name);
 	ofxSimpleGuiControl& setName(string newName);

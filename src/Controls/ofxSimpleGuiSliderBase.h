@@ -18,9 +18,11 @@ public:
 	Type		targetValue;
 	Type		oldValue;
 	Type		increment;
-	
+
 	ofxTextInputField textField;
 	bool enterText;
+
+	int nMidiControls;
 
 	//--------------------------------------------------------------------- construct
 	ofxSimpleGuiSliderBase(string name, Type &value, Type min, Type max) : ofxSimpleGuiControl(name) {
@@ -45,6 +47,9 @@ public:
 		enterText = false;
 		textField.disable();
 		textField.text = ofToString((*value));
+		bLearning = false;
+		bLearnt = false;
+		nMidiControls = 2;
 	}
 
 	void loadFromXML(ofxXmlSettings &XML) {
@@ -116,7 +121,15 @@ public:
 	}
 
 	void onPress(int x, int y, int button) {
-		updateSlider();
+		if(button == 2)
+		{
+        bLearning = !bLearning;
+        bLearnt = false;
+		}
+		else
+		{
+        updateSlider();
+		}
 	}
 
 	void onDragOver(int x, int y, int button) {
@@ -161,7 +174,7 @@ public:
 		textField.text = ofToString((*value));
 		textField.enable();
 		//textField.clear();
-		
+
 		}
 	}
 
@@ -204,6 +217,7 @@ public:
 		ofFill();
 
 		setEmptyColor();
+
 		//if(config->rounded)
 		//{
 		//   roundedRect(0, 0, width, config->sliderHeight, config->rectRadius);
@@ -225,6 +239,14 @@ public:
 
 
 		setTextBGColor();
+        if(bLearning)
+		{
+		    ofSetColor(255,0,0);
+		}
+		else if(bLearnt)
+		{
+		    ofSetColor(0,255,0);
+		}
 		if(config->rounded)
 		{
             roundedRect(0, config->sliderHeight, width, config->sliderTextHeight, config->rectRadius);
