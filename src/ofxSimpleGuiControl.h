@@ -40,6 +40,7 @@
 #include "ofxSimpleGuiConfig.h"
 #include "ofxXmlSettings.h"
 #include "ofxMidi.h"
+#include "ofxOsc.h"
 
 class ofxSimpleGuiControl : public ofxMSAInteractiveObject {
 public:
@@ -56,6 +57,7 @@ public:
 	char		keyboardShortcut;
 
 	ofxMidiMessage midiControl;
+	ofxOscMessage oscControl;
 
 	ofxSimpleGuiControl(string name);
 	ofxSimpleGuiControl& setName(string newName);
