@@ -4,11 +4,12 @@
 
 
 class ofxSimpleGuiToggle : public ofxSimpleGuiControl {
-	
+
 public:
 	bool	*value;
 	bool	momentary;
-	
+	int nMidiControls;
+
 	ofxSimpleGuiToggle(string name, bool &value);
 	ofxSimpleGuiToggle& setMomentary(bool m);
 	void setup();
