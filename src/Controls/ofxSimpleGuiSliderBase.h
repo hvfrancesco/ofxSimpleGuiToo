@@ -22,7 +22,6 @@ public:
 	ofxTextInputField textField;
 	bool enterText;
 
-	int nMidiControls;
 
 	//--------------------------------------------------------------------- construct
 	ofxSimpleGuiSliderBase(string name, Type &value, Type min, Type max) : ofxSimpleGuiControl(name) {
@@ -49,7 +48,7 @@ public:
 		textField.text = ofToString((*value));
 		bLearning = false;
 		bLearnt = false;
-		nMidiControls = 2;
+		midiSlideControls.clear();
 	}
 
 	void loadFromXML(ofxXmlSettings &XML) {
@@ -125,6 +124,7 @@ public:
 		{
         bLearning = !bLearning;
         bLearnt = false;
+        midiSlideControls.clear();
 		}
 		else
 		{
@@ -241,7 +241,11 @@ public:
 		setTextBGColor();
         if(bLearning)
 		{
-		    ofSetColor(255,0,0);
+		    if(midiSlideControls.size() == 1)
+		    {
+		       ofSetColor(255,255,0);
+		    }
+		    else {ofSetColor(255,0,0);}
 		}
 		else if(bLearnt)
 		{
