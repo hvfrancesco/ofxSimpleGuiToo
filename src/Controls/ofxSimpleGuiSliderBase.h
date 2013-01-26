@@ -163,6 +163,7 @@ public:
 		{
 		enterText=false;
 		setValue((Type)ofToFloat(textField.text));
+                textField.endEditing();
 		textField.disable();
 		textField.cursorPosition=0;
 		}
@@ -173,6 +174,7 @@ public:
 		//textField.text = "";
 		textField.text = ofToString((*value));
 		textField.enable();
+                textField.beginEditing();
 		//textField.clear();
 
 		}
@@ -264,7 +266,9 @@ public:
 		{
 		string s = name + ":";
 		ofDrawBitmapString(s, 3, config->sliderHeight + 14);
-		textField.draw(s.size()*8, config->sliderHeight+3);
+		textField.bounds.x = s.size()*8;
+		textField.bounds.y = config->sliderHeight+3;
+		textField.draw();
 		}
 		else
 		{
