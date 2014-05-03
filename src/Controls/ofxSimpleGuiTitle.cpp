@@ -68,7 +68,7 @@ void ofxSimpleGuiTitle::draw(float x, float y) {
 
 	if(hasTitle == false) return;
 
-	glPushMatrix();
+	ofPushMatrix();
 	ofTranslate(x, y, 0);
 
 	ofEnableAlphaBlending();
@@ -97,5 +97,5 @@ void ofxSimpleGuiTitle::draw(float x, float y) {
 
 	ofDisableAlphaBlending();
 
-	glPopMatrix();
+	ofPopMatrix();
 }

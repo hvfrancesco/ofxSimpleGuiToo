@@ -103,7 +103,7 @@ void ofxSimpleGuiColorPicker::draw(float x, float y) {
 
 	//update postion of gui object
 	setPos(x, y);
-	glPushMatrix();
+	ofPushMatrix();
 	ofTranslate(x, y, 0);
 
 	int startY = 0;
@@ -128,10 +128,10 @@ void ofxSimpleGuiColorPicker::draw(float x, float y) {
 		*/
 		
 		switch(i) {
-			case 0:glColor3f(1, 0, 0); break;
-			case 1:glColor3f(0, 1, 0); break;
-			case 2:glColor3f(0, 0, 1); break;
-			case 3:glColor3f(getValue(i), getValue(i), getValue(i)); break;
+			case 0:ofSetColor(255, 0, 0); break;
+			case 1:ofSetColor(0, 255, 0); break;
+			case 2:ofSetColor(0, 0, 255); break;
+			case 3:ofSetColor(getValue(i)*255, getValue(i)*255, getValue(i)*255); break;
 		}
 		
 
@@ -142,9 +142,9 @@ void ofxSimpleGuiColorPicker::draw(float x, float y) {
 		int iover = (getMouseY() - y) / config->colorSliderHeight/1.6; // was *2
 		bool isOver = iover == i;
 		if(isOver) {
-			glColor3f(1, 1, 1);
+			ofSetColor(255, 255, 255);
 		} else {
-			glColor3f(0.5, 0.5, 0.5);
+			ofSetColor(128, 128, 128);
 		}
 
 		ofDrawBitmapString(ofToString(getValue(i), 4), 3, startY + 12);
@@ -157,7 +157,7 @@ void ofxSimpleGuiColorPicker::draw(float x, float y) {
 	setTextBGColor();
 	ofRect(0, startY, width, config->sliderTextHeight);
 
-	glColor3f(getValue(0), getValue(1), getValue(2));
+	ofSetColor(getValue(0)*255, getValue(1)*255, getValue(2)*255);
 //	ofRect(0, startY+config->sliderTextHeight, width, config->sliderTextHeight * 1.5);
 	ofRect(150, startY + 3, width - 150 -3, config->sliderTextHeight - 8);
 
@@ -165,5 +165,5 @@ void ofxSimpleGuiColorPicker::draw(float x, float y) {
 	string s = name;
 	ofDrawBitmapString(s, 3, startY + 14);
 	ofDisableAlphaBlending();
-	glPopMatrix();
+	ofPopMatrix();
 }

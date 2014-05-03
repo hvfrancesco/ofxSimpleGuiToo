@@ -20,7 +20,7 @@ void ofxSimpleGuiContent::draw(float x, float y) {
 	setPos(x, y);
 	setup();
 
-	glPushMatrix();
+	ofPushMatrix();
 	ofTranslate(x, y, 0);
 	ofEnableAlphaBlending();
 	ofFill();
@@ -37,5 +37,5 @@ void ofxSimpleGuiContent::draw(float x, float y) {
 	setTextColor();
 	ofDrawBitmapString(name, 3, fixheight + 15);
 	ofDisableAlphaBlending();
-	glPopMatrix();
+	ofPopMatrix();
 }

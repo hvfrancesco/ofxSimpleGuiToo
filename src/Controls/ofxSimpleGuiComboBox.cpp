@@ -212,7 +212,7 @@ void ofxSimpleGuiComboBox::draw(float x, float y) {
 
 	setPos(x, y);
 
-	glPushMatrix();
+	ofPushMatrix();
 	ofTranslate(x, y, 0);
 
 	ofEnableAlphaBlending();
@@ -250,5 +250,5 @@ void ofxSimpleGuiComboBox::draw(float x, float y) {
 	}
 	ofDisableAlphaBlending();
 
-	glPopMatrix();
+	ofPopMatrix();
 }

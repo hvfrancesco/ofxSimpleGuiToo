@@ -87,7 +87,7 @@ void ofxSimpleGuiSlider2d::draw(float x, float y) {
 	pointv.y = ofMap((*value).y, min.y, max.y, y, y+height-config->slider2DTextHeight);
 
 	ofEnableAlphaBlending();
-	glPushMatrix();
+	ofPushMatrix();
 	ofTranslate(x, y, 0);
 
 	ofFill();
@@ -122,7 +122,7 @@ void ofxSimpleGuiSlider2d::draw(float x, float y) {
 	ofLine(pointv.x-x, 0, pointv.x-x, height-config->slider2DTextHeight);
 	ofLine(0, pointv.y-y,width, pointv.y-y);
 
-	glPopMatrix();
+	ofPopMatrix();
 	ofDisableAlphaBlending();
 
 }

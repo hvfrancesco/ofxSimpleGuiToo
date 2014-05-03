@@ -83,7 +83,7 @@ void ofxSimpleGuiToggle::draw(float x, float y) {
 //	enabled = true;
 	setPos(x, y);
 
-	glPushMatrix();
+	ofPushMatrix();
 	ofTranslate(x, y, 0);
 
 	ofEnableAlphaBlending();
@@ -110,6 +110,6 @@ void ofxSimpleGuiToggle::draw(float x, float y) {
 	ofDrawBitmapString(name, height + 15, 12);
 	ofDisableAlphaBlending();
 
-	glPopMatrix();
+	ofPopMatrix();
 }
 

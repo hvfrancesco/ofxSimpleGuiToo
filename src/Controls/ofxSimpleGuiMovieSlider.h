@@ -125,7 +125,7 @@ public:
 		//update postion of gui object
 		setPos(x, y);
 
-		glPushMatrix();
+		ofPushMatrix();
 		ofTranslate(x, y, 0);
 		ofEnableAlphaBlending();
 		ofFill();
@@ -156,7 +156,7 @@ public:
 //		}
 
 		ofDisableAlphaBlending();
-		glPopMatrix();
+		ofPopMatrix();
 
 
 
@@ -179,10 +179,10 @@ public:
 			ofRect(x+13, y+38, 2, 14);
 		}
 		else if(doPause){
-			glPushMatrix();
+			ofPushMatrix();
 			ofTranslate(x+6, y+37, 0);
 			ofTriangle(0, 0, 0, 16, 8, 8);
-			glPopMatrix();
+			ofPopMatrix();
 		}
 
 	}
