@@ -69,7 +69,7 @@ void ofxSimpleGuiTitle::draw(float x, float y) {
 	if(hasTitle == false) return;
 
 	glPushMatrix();
-	glTranslatef(x, y, 0);
+	ofTranslate(x, y, 0);
 
 	ofEnableAlphaBlending();
 	ofFill();

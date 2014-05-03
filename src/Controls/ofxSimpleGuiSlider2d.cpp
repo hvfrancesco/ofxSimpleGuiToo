@@ -88,7 +88,7 @@ void ofxSimpleGuiSlider2d::draw(float x, float y) {
 
 	ofEnableAlphaBlending();
 	glPushMatrix();
-	glTranslatef(x, y, 0);
+	ofTranslate(x, y, 0);
 
 	ofFill();
 	setFullColor();

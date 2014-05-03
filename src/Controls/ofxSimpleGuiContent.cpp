@@ -21,7 +21,7 @@ void ofxSimpleGuiContent::draw(float x, float y) {
 	setup();
 
 	glPushMatrix();
-	glTranslatef(x, y, 0);
+	ofTranslate(x, y, 0);
 	ofEnableAlphaBlending();
 	ofFill();
 	glColor4f(0, 0, 0, 0.8f);

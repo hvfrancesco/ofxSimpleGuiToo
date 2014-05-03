@@ -166,7 +166,7 @@ void ofxSimpleGuiToo::setDefaultKeys(bool b) {
 
 void ofxSimpleGuiToo::drawFocus(float x, float y) {
 	glPushMatrix();
-	glTranslatef(x, y, 0);
+	ofTranslate(x, y, 0);
 	ofFill();
 //	ofSetHexColor(config->focusColor.r, config->focusColor.g, config->focusColor.b, 200);
 	ofRect(0, 0, 10, 10);

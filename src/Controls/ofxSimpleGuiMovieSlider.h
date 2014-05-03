@@ -126,7 +126,7 @@ public:
 		setPos(x, y);
 
 		glPushMatrix();
-		glTranslatef(x, y, 0);
+		ofTranslate(x, y, 0);
 		ofEnableAlphaBlending();
 		ofFill();
 		ofSetColor(255, 255, 255, 200);
@@ -180,7 +180,7 @@ public:
 		}
 		else if(doPause){
 			glPushMatrix();
-			glTranslatef(x+6, y+37, 0);
+			ofTranslate(x+6, y+37, 0);
 			ofTriangle(0, 0, 0, 16, 8, 8);
 			glPopMatrix();
 		}

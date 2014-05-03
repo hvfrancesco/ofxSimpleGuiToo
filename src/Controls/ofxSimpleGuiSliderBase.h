@@ -215,7 +215,7 @@ public:
 
 		ofEnableAlphaBlending();
 		glPushMatrix();
-		glTranslatef(x, y, 0);
+		ofTranslate(x, y, 0);
 		ofFill();
 
 		setEmptyColor();
